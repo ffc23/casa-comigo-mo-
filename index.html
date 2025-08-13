@@ -1,81 +1,93 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedido de Casamento</title>
-    <style>
-        body {
-            background-color: white;
-            color: #006400; /* Verde escuro */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 50px 20px;
-            overflow: hidden;
-        }
-        .container {
-            max-width: 700px;
-            margin: auto;
-            padding: 40px 20px;
-            border-radius: 20px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedido de Casamento</title>
+<style>
+    body {
+        background-color: white;
+        color: #006400;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    .container {
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+        padding: 30px 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+        font-size: 1.5rem;
+        line-height: 1.5;
+        margin-bottom: 40px;
+    }
+    button {
+        font-size: 1.3rem;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        margin: 10px;
+        transition: transform 0.2s, background-color 0.3s;
+    }
+    #sim {
+        background-color: #2ecc71;
+        color: white;
+    }
+    #sim:hover {
+        background-color: #27ae60;
+    }
+    #nao {
+        background-color: #e74c3c;
+        color: white;
+        position: absolute;
+    }
+    @media (max-width: 400px) {
         h1 {
-            font-size: 1.8rem;
-            margin-bottom: 40px;
-            line-height: 1.6;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
         }
         button {
-            font-size: 1.5rem;
-            padding: 15px 40px;
-            border: none;
-            cursor: pointer;
-            border-radius: 30px;
-            margin: 15px;
-            transition: transform 0.2s ease, background-color 0.3s ease;
-            position: relative;
+            font-size: 1.1rem;
+            padding: 10px 25px;
         }
-        #sim {
-            background-color: #2ecc71;
-            color: white;
-        }
-        #sim:hover {
-            background-color: #27ae60;
-        }
-        #nao {
-            background-color: #e74c3c;
-            color: white;
-            position: absolute;
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>
-            Eu sou completamente apaixonado por você, é você que eu quero pro resto da minha vida 
-            e essa é a maior certeza que eu tenho na minha vida.<br>
-            Eu não quero nenhuma mulher que não seja você.<br>
-            Aceita se casar comigo?
-        </h1>
+<div class="container">
+    <h1>
+        Eu sou completamente apaixonado por você, é você que eu quero pro resto da minha vida
+        e essa é a maior certeza que eu tenho na minha vida.<br>
+        Eu não quero nenhuma mulher que não seja você.<br>
+        Aceita se casar comigo?
+    </h1>
+    <button id="sim">Sim 💍</button>
+    <button id="nao">Não ❌</button>
+</div>
 
-        <button id="sim">Sim 💍</button>
-        <button id="nao">Não ❌</button>
-    </div>
+<script>
+    // Botão "Não" foge
+    const naoBtn = document.getElementById('nao');
+    naoBtn.addEventListener('mouseover', () => {
+        const x = Math.random() * (window.innerWidth - naoBtn.offsetWidth);
+        const y = Math.random() * (window.innerHeight - naoBtn.offsetHeight);
+        naoBtn.style.left = x + 'px';
+        naoBtn.style.top = y + 'px';
+    });
 
-    <script>
-        // Faz o botão "Não" fugir
-        const naoBtn = document.getElementById('nao');
-        naoBtn.addEventListener('mouseover', () => {
-            const x = Math.random() * (window.innerWidth - naoBtn.offsetWidth);
-            const y = Math.random() * (window.innerHeight - naoBtn.offsetHeight);
-            naoBtn.style.left = x + 'px';
-            naoBtn.style.top = y + 'px';
-        });
-
-        // Botão "Sim" mostra mensagem
-        document.getElementById('sim').addEventListener('click', () => {
-            alert("Te amo, cagada 💖");
-        });
-    </script>
+    // Botão "Sim" mostra mensagem
+    document.getElementById('sim').addEventListener('click', () => {
+        alert("Te amo, cagada 💖");
+    });
+</script>
 </body>
 </html>
